@@ -1,0 +1,8 @@
+{
+    "id": "job1",
+    "title": "Senior PHP Laravel Developer",
+    "url": "https://www.upwork.com/jobs/job1",
+    "description": "We are looking for a senior backend engineer with 5+ years of PHP/Laravel experience to build and maintain API integrations between our CRM and several third-party services. Must be comfortable with queues, webhooks, and idempotent job processing.",
+    "budget": "$40-65/hr",
+    "skills": ["PHP", "Laravel", "REST APIs", "Webhooks"]
+}

@@ -1,0 +1,18 @@
+{
+    "jobs": [
+        {
+            "id": "job1",
+            "title": "Senior PHP Laravel Developer",
+            "url": "https://www.upwork.com/jobs/job1",
+            "budget": "$40-65/hr",
+            "snippet": "Looking for a senior backend engineer to build API integrations between our CRM and third-party services."
+        },
+        {
+            "id": "job2",
+            "title": "Backend Automation Engineer (PHP)",
+            "url": "https://www.upwork.com/jobs/job2",
+            "budget": "$4000 fixed",
+            "snippet": "Need help automating a webhook processing pipeline in Laravel."
+        }
+    ]
+}
