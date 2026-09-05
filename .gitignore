@@ -1,6 +1,7 @@
 /vendor/
 /.phpunit.cache/
 /.env
+/.superpowers/
 /soul.md
 /skills/cv-tailoring/reference/
 /applications/
