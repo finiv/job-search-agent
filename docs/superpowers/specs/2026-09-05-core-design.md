@@ -38,10 +38,26 @@ rollout (Upwork only, for now).
 
 ### Repo
 
-New git repo at `~/income-pipeline/job-search-agent` (local-only, not
-public — contains personal CV/experience data). PHP 8.1+, Composer,
+New git repo at `~/income-pipeline/job-search-agent`, PHP 8.1+, Composer,
 PSR-4 autoload `JobSearchAgent\` → `src/`. Mirrors `code-review-agent`'s
 project layout (`bin/`, `src/`, `tests/`, `docs/superpowers/`).
+
+**This repo will be pushed to a public GitHub repo as a portfolio piece**
+(runs locally day-to-day, same spirit as `code-review-agent`). The core
+(`src/`, `tests/`, `docs/`, `bin/`) is generic and safe to publish. Three
+paths hold this specific candidate's personal data and are `.gitignore`d,
+never committed, staying local-only:
+
+- `soul.md` — real name, mission, rate target, tax/visa status.
+- `skills/cv-tailoring/reference/` — real employer specifics, career
+  history, rate/negotiation data.
+- `applications/` — real submitted CVs/cover letters and their
+  `ApplicationStore` records.
+
+`skills/cv-tailoring/SKILL.md` and `skills/senior-it-recruiter/SKILL.md`
+are pure process/craft documentation with no personal identifiers —
+these ARE committed, and are good portfolio content in their own right.
+`tests/fixtures/upwork/` is synthetic data, always committed.
 
 ### Core agent loop (`src/Agent/`, `src/Http/`)
 
