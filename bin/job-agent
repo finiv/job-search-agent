@@ -9,6 +9,30 @@ use JobSearchAgent\Cli\SearchCommand;
 use JobSearchAgent\Cli\SubmitCommand;
 use Symfony\Component\Console\Application;
 
+/**
+ * Minimal .env loader: parses KEY=value lines from the project root's
+ * .env file (if present) and puts them into the process environment via
+ * putenv(), without overriding a real environment variable that is
+ * already set. No dependency beyond PHP itself.
+ */
+$envPath = __DIR__ . '/../.env';
+if (is_file($envPath)) {
+    foreach (file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [] as $line) {
+        $line = trim($line);
+        if ($line === '' || str_starts_with($line, '#') || !str_contains($line, '=')) {
+            continue;
+        }
+
+        [$key, $value] = explode('=', $line, 2);
+        $key = trim($key);
+        $value = trim($value);
+
+        if ($key !== '' && getenv($key) === false) {
+            putenv("{$key}={$value}");
+        }
+    }
+}
+
 $application = new Application('job-agent', '0.1.0');
 $application->add(new SearchCommand());
 $application->add(new PrepCommand());
