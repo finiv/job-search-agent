@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use JobSearchAgent\Cli\SearchCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application('job-agent', '0.1.0');
+$application->add(new SearchCommand());
+$application->run();
