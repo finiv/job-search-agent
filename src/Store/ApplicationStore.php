@@ -55,10 +55,15 @@ class ApplicationStore
             throw new \RuntimeException("Unable to create application directory: {$dir}");
         }
 
-        file_put_contents(
-            $dir . '/record.json',
+        $path = $dir . '/record.json';
+        $written = @file_put_contents(
+            $path,
             json_encode($record, JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR)
         );
+
+        if ($written === false) {
+            throw new \RuntimeException("Failed to write application record: {$path}");
+        }
     }
 
     /** @return array[] */

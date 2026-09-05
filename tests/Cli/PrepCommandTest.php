@@ -45,6 +45,25 @@ class PrepCommandTest extends TestCase
         $this->assertSame('drafted', $store->load($record['id'])['status']);
     }
 
+    public function test_refuses_to_reopen_a_submitted_application(): void
+    {
+        $store = new ApplicationStore($this->dir);
+        $record = $store->create('upwork', 'job1', 'Senior PHP Dev');
+        $record['status'] = 'submitted';
+        $store->save($record);
+
+        $command = new PrepCommand($store);
+        $application = new Application();
+        $application->add($command);
+        $tester = new CommandTester($command);
+
+        $tester->execute(['application-id' => $record['id']]);
+
+        $this->assertSame(1, $tester->getStatusCode());
+        $this->assertStringContainsString('already submitted', $tester->getDisplay());
+        $this->assertSame('submitted', $store->load($record['id'])['status']);
+    }
+
     public function test_unknown_id_fails_clearly(): void
     {
         $store = new ApplicationStore($this->dir);

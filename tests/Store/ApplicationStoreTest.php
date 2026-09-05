@@ -17,13 +17,29 @@ class ApplicationStoreTest extends TestCase
 
     protected function tearDown(): void
     {
-        foreach (glob($this->dir . '/*/*') ?: [] as $file) {
-            unlink($file);
+        $this->removeDirectory($this->dir);
+    }
+
+    private function removeDirectory(string $dir): void
+    {
+        if (!is_dir($dir)) {
+            return;
         }
-        foreach (glob($this->dir . '/*') ?: [] as $subdir) {
-            @rmdir($subdir);
+
+        foreach (scandir($dir) ?: [] as $entry) {
+            if ($entry === '.' || $entry === '..') {
+                continue;
+            }
+
+            $path = $dir . '/' . $entry;
+            if (is_dir($path)) {
+                $this->removeDirectory($path);
+            } else {
+                unlink($path);
+            }
         }
-        rmdir($this->dir);
+
+        rmdir($dir);
     }
 
     public function test_create_writes_a_record_with_status_found(): void
@@ -76,6 +92,25 @@ class ApplicationStoreTest extends TestCase
         $store->create('upwork', 'job2', 'Backend Automation Engineer');
 
         $this->assertCount(2, $store->list());
+    }
+
+    public function test_save_throws_when_the_write_target_is_blocked(): void
+    {
+        $store = new ApplicationStore($this->dir);
+        $record = $store->create('upwork', 'job1', 'Blocked Write');
+
+        // Replace record.json with a directory of the same name so
+        // file_put_contents() is guaranteed to fail (returns false)
+        // regardless of user/permissions — portable across macOS/Linux
+        // and unaffected by running as root.
+        $recordPath = $this->dir . '/' . $record['id'] . '/record.json';
+        unlink($recordPath);
+        mkdir($recordPath);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessageMatches('/Failed to write application record/');
+
+        $store->save($record);
     }
 
     public function test_create_avoids_id_collisions_for_same_title_same_day(): void

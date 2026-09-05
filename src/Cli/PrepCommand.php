@@ -40,6 +40,11 @@ class PrepCommand extends Command
             return Command::FAILURE;
         }
 
+        if ($record['status'] === 'submitted') {
+            $io->error("Application {$id} was already submitted and cannot be reopened for prep.");
+            return Command::FAILURE;
+        }
+
         $record['status'] = 'drafted';
         $store->save($record);
 
