@@ -11,12 +11,10 @@ the second agent build (after `code-review-agent`), same architectural
 lineage — a portable, testable loop behind a swappable adapter interface,
 with a hard human-approval gate before anything is ever submitted.
 
-Full product context, decisions, and constraints already recorded in the
-Obsidian vault: `Projects/JobSearchAgent/_MOC.md`,
-`Projects/JobSearchAgent/2026-09-03-brainstorming-open-questions.md`, and
-this repo's own `soul.md`. This spec covers only the core build — not the
-CV-tailoring skill content (already built) and not the full multi-platform
-rollout (Upwork only, for now).
+Full product context, decisions, and open-question history are tracked
+outside this repo, alongside this repo's own `soul.md`. This spec covers
+only the core build — not the CV-tailoring skill content (already built)
+and not the full multi-platform rollout (Upwork only, for now).
 
 ## Non-goals for this build
 
