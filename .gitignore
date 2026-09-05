@@ -1,0 +1,6 @@
+/vendor/
+/.phpunit.cache/
+/.env
+/soul.md
+/skills/cv-tailoring/reference/
+/applications/
