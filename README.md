@@ -2,10 +2,9 @@
 
 A job-search agent built around an Anthropic Claude tool-calling loop. It
 searches job platforms, drafts and reviews applications, and submits them
-— with a human in the loop at the one step that actually matters. This is
-the second build in a small series (after [`agent-reviewer`](https://github.com/finiv/agent-reviewer))
-sharing the same architecture: a portable, testable tool-calling core
-sitting behind a swappable platform adapter interface.
+— with a human in the loop at the one step that actually matters: a
+portable, testable tool-calling core sitting behind a swappable platform
+adapter interface.
 
 **Requirements:** PHP 8.1+, Composer, an Anthropic API key.
 
