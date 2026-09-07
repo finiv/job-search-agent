@@ -2,7 +2,7 @@
     "name": "finiv/job-search-agent",
     "description": "AI job-search agent using an Anthropic Claude tool-calling loop and swappable JobSiteAdapter platforms, starting with Upwork.",
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "bin": [
         "bin/job-agent"
     ],

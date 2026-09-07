@@ -3,9 +3,11 @@
 A job-search agent built around an Anthropic Claude tool-calling loop. It
 searches job platforms, drafts and reviews applications, and submits them
 — with a human in the loop at the one step that actually matters. This is
-the second build in a small series (after `code-review-agent`) sharing the
-same architecture: a portable, testable tool-calling core sitting behind
-a swappable platform adapter interface.
+the second build in a small series (after [`agent-reviewer`](https://github.com/finiv/agent-reviewer))
+sharing the same architecture: a portable, testable tool-calling core
+sitting behind a swappable platform adapter interface.
+
+**Requirements:** PHP 8.1+, Composer, an Anthropic API key.
 
 ## Commands
 
@@ -52,5 +54,9 @@ composer install
 cp .env.example .env
 # fill in ANTHROPIC_API_KEY in .env
 vendor/bin/phpunit
-php bin/job-agent search "some query"
+php bin/job-agent search --platform=upwork "backend php laravel"
 ```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
