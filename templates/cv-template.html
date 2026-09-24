@@ -16,6 +16,7 @@
   .tech { font-size: 10pt; color: #444; margin-bottom: 6pt; }
   .skills-group { margin-bottom: 5pt; }
   .skills-group b { font-size: 10.5pt; }
+  .fixed-role { break-inside: avoid; page-break-inside: avoid; }
 </style>
 </head>
 <body>
@@ -39,6 +40,14 @@
   entirely for Upwork applications (see
   reference/recruiter-playbook.md's Upwork contact-info rule) — don't
   leave it empty, remove the element.
+
+  Page breaks: wrap each SHORT, fixed older role (the three earliest
+  roles in profile/experience.md — 2-3 bullets each) in
+  <div class="fixed-role">...</div> so a page break never lands between
+  its last bullet and its Tech: line (a real orphaning bug, fixed
+  2026-09-24). Do NOT wrap the two longer tailored roles the same way —
+  a long block is fine splitting across a page, forcing it to stay
+  together can push it awkwardly instead.
 -->
 
 <h1>{{FULL_NAME}}</h1>

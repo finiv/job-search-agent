@@ -31,7 +31,11 @@ For each candidate vacancy, label it one of: **strong match**,
 **adjacent stack**, or **career stretch** — see `profile/preferences.md`'s
 role/stack-fit stance. A framework gap or unfamiliar tool is not by
 itself a reason to skip; missing salary/conditions is a reason to ask
-the user, not to silently reject.
+the user, not to silently reject. If a gap sits in a *core* hard
+requirement, surface it at evaluation time and ask the user whether to
+proceed — never auto-reject and never silently paper over it. Full
+rule: `skills/cv-tailoring/reference/recruiter-playbook.md`'s "Honesty
+/ experience-gap rule."
 
 **Signal extraction, not company research by default.** Read the
 vacancy text for concrete product signals — what the system actually
@@ -48,7 +52,8 @@ research pass) is fine — never a default step for every application.
 
 ## 3. Prior-contact check
 Check Gmail and the platform's own messaging. Record as `checked`,
-`not_checked`, or `unavailable` — see `reference/recruiter-playbook.md`.
+`not_checked`, or `unavailable` — see
+`skills/cv-tailoring/reference/recruiter-playbook.md`.
 
 ## 4. Prepare the package
 Invoke `cv-tailoring`, then `senior-it-recruiter`. Select the subset of
@@ -66,16 +71,38 @@ contact block correct for the platform, text actually extractable
 itself.
 
 ## 6. Submit only after explicit per-vacancy approval
-No standing auto-submit mode, ever — see `soul.md`.
+No standing auto-submit mode, ever — see `soul.md`. If the package was
+prepared directly in a live form (browser), re-verify the form's
+current text and attached file immediately before submitting — not
+just that it was correct when first filled. If the CV was edited after
+the form was filled, re-export the PDF and re-attach it; if the cover
+letter was edited, re-type the form's text field. A form left open
+across edits can silently go stale.
 
 ## 7. Record the outcome
 Update `record.json` with `"schema_version": 2` and: `status`,
 `prior_contact_checked`, `attached_cv_file`/`attached_cv_verified`,
-`next_action`/`next_action_at`, `last_response_at`. Then run
+`next_action`/`next_action_at`, `last_response_at`. Set `status:
+"submitted"` only after the platform actually confirms it (a success
+banner, a confirmation email, a changed URL) — never on the assumption
+that clicking submit worked. Keep whatever proof is available
+(response URL/ID, confirmation email, a screenshot) noted in the
+record. Record the actual submission time when known; if only the
+date is known, use the date without inventing a specific time —
+`T00:00:00` is a guess, not a fact, and reads as one later. Then run
 `scripts/validate-application.py applications/<id>/record.json` before
 treating the record as done. Applications created before this schema
 existed are legacy (no `schema_version`) — the validator skips them
 rather than failing; don't mass-convert them, see the plan's Task 6/7.
+
+**Submitted applications are historical snapshots — don't rewrite
+them, but do read them.** Once a package is sent, never overwrite its
+CV, cover letter, or gap log to match a rule written afterward.
+Reading, auditing, or reviewing a submitted package — e.g. before an
+interview — is fine and expected; if that review surfaces something
+worth noting, add a new, separately dated note rather than editing the
+original content. Fix rules going forward; leave what was already sent
+as an accurate record of what actually happened at the time.
 
 ## Pace
 No fixed daily cap. Watch each platform's own signal instead of a

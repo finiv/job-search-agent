@@ -32,11 +32,12 @@ versions — it's to compose a new one, every time, from source material.
    relevant to what you identified in step 1. These are the only two
    roles you tailor; everything else in that file is fixed (step 4).
 3. Read `profile/skills.md` — select and order the skills this vacancy
-   actually cares about. Apply the honesty/stretch rule in
-   `reference/recruiter-playbook.md` if the vacancy names something not
-   yet listed there as "already true," and never present anything from
-   `profile/skills.md`'s "currently learning" section as existing
-   production experience.
+   actually cares about. If the vacancy names something `profile/`
+   doesn't confirm, follow `reference/recruiter-playbook.md`'s
+   "Honesty / experience-gap rule" (ask if it matters, omit if it
+   doesn't, never present it as confirmed) — and never present
+   anything from `profile/skills.md`'s "currently learning" section as
+   existing production experience.
 4. Use `profile/experience.md`'s Contact section, its older/fixed role
    entries, Education, and Languages as fixed: the facts may not be
    altered or invented, but shortening and reordering bullets for
@@ -45,8 +46,9 @@ versions — it's to compose a new one, every time, from source material.
    Summary (2-3 sentences, vacancy-specific angle) and the two tailored
    roles' experience bullets (drawn from step 2's raw material)
    following its visibility/strength/de-AI-ification rules.
-6. Follow every rule in `reference/recruiter-playbook.md` (stretch-
-   logging, which roles are tailored vs. fixed).
+6. Follow every rule in `reference/recruiter-playbook.md`, including
+   the "Honesty / experience-gap rule" and which roles are tailored vs.
+   fixed.
 7. Compose a cover letter (150-200 words) from the same tailored
    material, following `senior-it-recruiter`'s writing rules. **Never
    name a past/current employer in it** (see
@@ -55,8 +57,9 @@ versions — it's to compose a new one, every time, from source material.
    which company it happened at. The CV's Experience section still
    names employers normally; this restriction is cover-letter-only.
 8. Output the composed CV and cover letter in the structure below, plus
-   a separate "stretch log" listing anything added that wasn't already
-   true before this application (empty list if nothing was stretched).
+   a separate log listing any open questions asked, any gap disclosed
+   to the recruiter vs. only tracked internally, and interview prep
+   notes (empty/"None" if there's nothing to log).
 
 ## Hard rules
 
@@ -64,12 +67,25 @@ versions — it's to compose a new one, every time, from source material.
   sections (Contact, the older/fixed role entries, Education,
   Languages) — reorder or shorten only.
 - Never invent a specific, checkable claim about work that didn't happen
-  (a project, an employer, a metric) — stretching is about plausible
-  skill/technology extension, not fabricated history.
-- Every stretch MUST appear in the stretch log. No silent stretches.
+  (a project, an employer, a metric). Extending a real skill to a
+  plausible adjacent one is a separate thing, governed entirely by
+  `reference/recruiter-playbook.md`'s "Honesty / experience-gap rule" —
+  fabricating history is never covered by it.
 - Do not reveal the NDA'd prior role's product specifics, regardless of
   what the vacancy asks about — see `profile/experience.md` for which
   role that is and its exact constraint.
+- **Facts come only from `profile/` (either `experience.md` or
+  `skills.md` — a fact can be confirmed in either),
+  `reference/key-achievements-pool.md`, and this session's explicit
+  confirmations from the user — never from a previously generated CV,
+  cover letter, or `stretch-log.md`.** A prior application's wording is
+  a style/structure
+  example, not a source of truth. See `reference/recruiter-playbook.md`'s
+  "Honesty / experience-gap rule" for what to do when `profile/` doesn't
+  confirm something the vacancy names — the short version: ask if it
+  matters, omit if it doesn't, describe real-but-limited experience
+  precisely, never present it as fully confirmed just because an
+  earlier application's text said so.
 
 ## Output format
 
@@ -85,10 +101,12 @@ versions — it's to compose a new one, every time, from source material.
 ## Cover Letter
 [150-200 words, no employer names]
 
-## Stretch log
-- [skill/claim added] — [why it's a plausible extension] — [what to
-  study/prep before an interview]
-(or: "None — everything in this CV was already true.")
+## Gap / question log
+- [open question asked to the user, and the answer] — or
+- [gap noted: disclosed to the recruiter in the cover letter/a form
+  answer, or tracked internally only] — [what to study/prep before an
+  interview]
+(or: "None — nothing unconfirmed came up.")
 ```
 
 The CV portion here is the agent's structured output. Fill it into
