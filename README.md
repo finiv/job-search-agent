@@ -46,6 +46,16 @@ yet, so no real API calls happen. Building a real
 and it requires zero changes to `UpworkAdapter` itself — the adapter
 already only depends on the interface.
 
+## This code vs. the real workflow
+
+This PHP CLI is a portfolio prototype — Upwork-only, fixture-backed,
+`prep` doesn't wire into `cv-tailoring`. It does not drive real job
+applications. The actual day-to-day job search runs through
+`skills/job-search/SKILL.md` in an interactive session (see
+`CLAUDE.md` at the repo root) — profile, CV tailoring, PDF export, and
+application records all live outside this CLI. Don't assume `search`/
+`prep`/`review`/`submit` describe how applications actually get made.
+
 ## Setup
 
 ```bash
